@@ -1,0 +1,17 @@
+package
+{
+	import flash.utils.ByteArray;
+
+	public class nameClass
+	{
+		[variable]
+		public function nameClass():void
+		{
+		}
+		
+		public function parseData(data:ByteArray):void
+		{
+			[info]
+		}
+	}
+}

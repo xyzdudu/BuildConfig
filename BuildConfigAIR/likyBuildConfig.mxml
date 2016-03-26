@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+					   xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   applicationComplete="onInit()"
+					   close="onClose()"
+					   width="520" height="329">
+	<fx:Script source="main.as"/>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<!-- @author 肥嘟嘟 -->
+	<s:Panel x="10" y="5" width="500" height="150" title="连接数据库">
+		<s:Label x="34" y="17" text="host:" textAlign="right"/>
+		<s:Label x="37" y="45" text="port:" textAlign="right"/>
+		<s:Label x="251" y="10" text="username:" textAlign="right"/>
+		<s:Label x="255" y="40" text="password:" textAlign="right"/>
+		<s:Label x="7" y="69" text="database:" textAlign="right"/>
+		<s:Label x="39" y="98" text="plat:" textAlign="right"/>
+		<s:TextInput x="67" y="6" id="host" text="192.168.23.4" width="162" change="text_change(event)"/>
+		<s:TextInput x="67" y="36" id="port" text="3306" width="162" restrict="0-9" change="text_change(event)"/>
+		<s:TextInput x="317" y="6" id="username" text="root" width="171" change="text_change(event)"/>
+		<s:TextInput x="318" y="36" id="password"  text="123456" displayAsPassword="true"  width="168" change="text_change(event)"/>
+		<s:TextInput x="68" y="64"  id="database" text="zhtx_template" width="161" change="text_change(event)"/>
+		<s:TextInput x="68" y="91"  id="platTxt" text="qq" width="161" change="text_change(event)"/>
+		<s:Label x="285" y="91" text="数据库《未》连接" id="connState" width="124" height="21" fontSize="14" textAlign="right"/>
+		<s:Button x="418" y="89" label="连接" id="connBtn"  click="connectClick(event)"/>
+	</s:Panel>
+	<s:Panel x="10" y="163" width="500" height="147" title="导出及压缩">
+		<s:Label x="6" y="10" text="导出路径:"/>
+		<s:TextInput x="61" y="4" width="320" text="E:\config_dgb\" id="target_path" change="text_change(event)"/>
+		<s:Label x="6" y="40" text="language和descript路径:"/>
+		<s:TextInput x="145" y="34" width="320" text="E:\战痕天下\core\dreamStart2.0\asset\txt\" id="language_path" change="text_change(event)"/>
+		<s:CheckBox x="68" y="55" label="导出language和descript" click="selectLanguage(event)" height="24" id="select_language"/>
+		<s:CheckBox x="317" y="55" label="导出配置表" click="selectConfig(event)" height="24" id="select_config"/>
+		<s:Button x="67" y="83" label="导出" id="btn_ok0" click="btn_ok_clickHandler(event)"/>
+		<s:Button x="182" y="83" width="121" label="生成dbg配置文件" click="onOutputDGBConfig(event)"/>
+		<s:Button x="341" y="83" width="86" label="生成AS文件" click="onOutputASConfig(event)"/>
+	</s:Panel>
+</s:WindowedApplication>

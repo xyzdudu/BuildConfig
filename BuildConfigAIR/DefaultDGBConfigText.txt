@@ -1,0 +1,17 @@
+package
+{
+	import flash.display.Sprite;
+	import flash.system.Security;
+	import flash.utils.ByteArray;
+	
+	public class CONFIG_ZHTX extends Sprite
+	{
+		[info]
+		
+		public function CONFIG_ZHTX()
+		{
+			Security.allowDomain("*");
+			Security.allowInsecureDomain("*");
+		}
+	}
+}

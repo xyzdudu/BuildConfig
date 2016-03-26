@@ -1,0 +1,12 @@
+package liky.core.manager.configs
+{
+	public class ConfigName
+    {
+    	public static const configList:Array = 
+		[
+			[list]
+		];
+		
+    	[info]
+    }
+}

@@ -1,0 +1,53 @@
+package
+{
+	import flash.utils.ByteArray;
+
+	public class nameClass
+	{
+		private static var list:Array;
+		
+		public function nameClass():void
+		{
+		}
+		
+		public static function parseData(data:ByteArray):void
+		{
+			list = new Array();
+			
+			data.uncompress();
+			data.readUTF();
+			var typeLen:int = data.readInt();
+			for(var i:int = 0; i < typeLen; i ++)
+			{
+				data.readUTF();
+				data.readUTF();
+			}
+			
+			var len:int = data.readInt();
+			
+			for(var j:int = 0;j < len;j ++)
+			{
+				var item:templateInfo = new templateInfo();
+				item.parseData(data);
+				
+				list.push(item);
+			}
+		}
+		
+		private static function checkInitData():void
+		{
+			if(!list)
+			{
+				var bytes:ByteArray = ConfigResManager.getInstance().getConfigData("nameList");
+				parseData(bytes);
+			}
+		}
+		
+		public static function getList():Array
+		{
+			checkInitData();
+			
+			return list;
+		}
+	}
+}
